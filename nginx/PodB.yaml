@@ -10,11 +10,11 @@ spec:
       persistentVolumeClaim:
         claimName: task-pv-claim
 	  - name: nginx-cm
-	    configMap:
+	configMap:
 	      name: nginxconfigmap	  
   containers:
     - name: task-pv-container
-      image: nginx
+      image: nginx-php
 	  resources:
         limits:
           memory: 200Mi
@@ -26,5 +26,5 @@ spec:
       volumeMounts:
         - mountPath: "/opt/nginx/html"
           name: task-pv-storage
-		    - mountPath: "/mnt/env"
+        - mountPath: "/mnt/env"
           name: nginx-cm

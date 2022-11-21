@@ -1,0 +1,9 @@
+# Part1
+
+We have created 3 pod definitions i.e podA, podB and podC which show case container memory distribution.
+
+# Part 2
+
+As we opted for hostpath strategy to keep our static contents, we will copying the dummy.csv onto the node hostpath directly.
+
+cp -p dummy.csv /var/www/mediawiki on all 3 nodes

@@ -1,0 +1,3 @@
+#Creating new openshift project for use case
+
+oc new-project mediawiki

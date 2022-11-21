@@ -14,7 +14,7 @@ spec:
 	      name: nginxconfigmap	  
   containers:
     - name: task-pv-container
-      image: nginx
+      image: nginx-php
 	  resources:
         limits:
           memory: 400Mi

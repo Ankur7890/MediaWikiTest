@@ -1,0 +1,30 @@
+---
+apiVersion: v1
+kind: ResourceQuota
+metadata:
+  name: quota
+  namespace: mediawiki
+spec:
+  hard:
+    limits.cpu: "6"
+    limits.memory: 5Gi
+    requests.cpu: "3"
+    requests.memory: 1Gi
+    pods: "10"
+    
+---
+
+apiVersion: v1
+kind: LimitRange
+metadata:
+  name: mem-limit-range
+spec:
+  limits:
+  - default:
+      memory: 1Gi
+    defaultRequest:
+      memory: 256Mi
+    type: Container
+    
+    
+    

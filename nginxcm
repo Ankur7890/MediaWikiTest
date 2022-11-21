@@ -1,0 +1,3 @@
+Configmap for nginx.conf
+
+oc create cm nginxconfigmap --from-file=<path>/nginx.conf

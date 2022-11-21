@@ -1,0 +1,3 @@
+#expose route
+
+oc expose route svc/mysqlsvc -n mediawiki

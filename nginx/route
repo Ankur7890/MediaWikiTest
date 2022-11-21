@@ -1,0 +1,3 @@
+#Expose Nginx route
+
+oc expose svc/svc-nginx

@@ -1,0 +1,17 @@
+kind: ConfigMap
+apiVersion: v1
+metadata:
+name: mediawiki-new-cm
+namespace: mediawiki
+data:
+# Configuration Values are stored as key-value pairs
+  connection.data.hostname: "host1"
+  connection.data.url: "https://<route-url>"
+  connection.data.username: "mediawikiuser"
+  connection.data.uri: "/test"
+
+
+
+####################################################
+
+Once configmap is created using "oc create -f cm.yaml", reference of it can be passed within deploymentconfig, pod or rc yaml definitions.

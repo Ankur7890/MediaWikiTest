@@ -2,7 +2,8 @@ apiVersion: v1
 kind: Pod
 metadata:
   name: task-pv-pod
-  label: nginx
+  labels:
+    app: nginx
 spec:
   volumes:
     - name: task-pv-storage

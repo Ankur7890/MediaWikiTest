@@ -1,0 +1,57 @@
+# Creation of secret to keep mysql password
+
+apiVersion: v1
+kind: Secret
+metadata:
+  name: mysqlpass
+type: Opaque
+data:
+  password: <mysqlpass>
+
+---
+# Run oc command to create secret
+
+    oc create -f mysqlpassword.yaml -n mediawiki
+    
+# Persistent volume creation 
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: nfs-pv 
+spec:
+  capacity:
+    storage: 10Gi 
+  accessModes:
+    - ReadWriteMany 
+  persistentVolumeReclaimPolicy: Retain 
+  nfs: 
+    path: <nfs path>
+    server: <server nfs IP>
+    readOnly: false
+    
+#Run oc command to create pv
+
+oc create -f pv.yaml
+
+# Persistent volume claim Creation
+
+---
+
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: mysql-pv-claim
+  namespace: mediawiki
+  labels:
+    app: mysql
+spec:
+  accessModes:
+    - ReadWriteMany
+  resources:
+    requests:
+      storage: 10Gi
+      
+# oc command to create pvc 
+
+oc create -f pvc.yaml

@@ -14,7 +14,7 @@ spec:
 	      name: nginxconfigmap	  
   containers:
     - name: task-pv-container
-      image: nginx
+      image: nginx-php
 	  resources:
         limits:
           memory: 500Mi
@@ -26,5 +26,5 @@ spec:
       volumeMounts:
         - mountPath: "/opt/nginx/html"
           name: task-pv-storage
-		    - mountPath: "/mnt/env"
+        - mountPath: "/mnt/env"
           name: nginx-cm
